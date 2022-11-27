@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Postman</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="shortcut icon" href="#">
+  </head>
+  <body>
+    <!-- navbar-dark bg-dark -->
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">PostMaster</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link navbar-brand active navbar-brand"
+                aria-current="page"
+                href="#"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link navbar-brand" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link navbar-brand" href="#">Contact us</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <h2 class="my-3">Welcome to PostMaster</h2>
+    </div>
+    <div class="container">
+      <!-- url box-->
+      <div class="mb-3 row">
+        <label for="urlField" class="col-sm-2 col-form-label"
+          >URL</label
+        >
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="urlField" placeholder="Enter your URL"/>
+        </div>
+      </div>
+
+      <!-- Request type box -->
+      <fieldset class="row mb-3">
+        <legend class="col-form-label col-sm-2 pt-0">Request Type</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="requestType" id="get" value="GET" checked>
+            <label class="form-check-label" for="get">
+           GET
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="requestType" id="post" value="POST">
+            <label class="form-check-label" for="post">
+          POST
+            </label>
+          </div>
+      
+        </div>
+      </fieldset>
+
+      <!-- Content type box -->
+      <fieldset class="row mb-3">
+        <legend class="col-form-label col-sm-2 pt-0">Content Type</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="contentType" id="json" value="JSON" checked>
+            <label class="form-check-label" for="get">
+           JSON
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="contentType" id="contentType" value="params">
+            <label class="form-check-label" for="contentType">
+          Custom parameters
+            </label>
+          </div>
+      
+        </div>
+      </fieldset>
+
+      <!-- parameters box this will hide on clicking json option in content type -->
+   
+        <div id="parametersBox">
+
+          <div class="row mb-3">
+            <label for="parameterKey1" class="col-sm-2 col-form-label">parameter 1</label>
+            <div class="col-sm-5">
+              <input type="email" class="form-control" id="parameterKey1" placeholder="Enter parameter 1 key">
+            </div>
+            <div class="col-md-5 d-flex">
+              <input type="email" class="form-control" id="parameterValue1" placeholder="Enter parameter 1 value">
+              <button id="addParam" class="btn btn-primary d-inline">+</button>
+            </div>
+          </div>
+          <div id="paramms">
+            
+          </div>
+      </div>
+        
+      <!-- JSON request box: This will hide on clicking parameters option in content type -->
+      <div class="my-3" id="requestJsonBox">
+
+        <div class="mb-3 row">
+          <label for="requestJson" class="col-sm-2 col-form-label">Enter Request Json</label>
+          <div class="col-sm-10">
+            <!-- <input type="password" class="form-control" id="inputPassword"> -->
+            <textarea class="form-control" id="requestJsonText" rows="3"></textarea>
+  
+  
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit button which will triggor our fetch api -->
+      <div class="mb-3 row">
+        
+        
+          <div class="col-sm-10">
+          <button class="btn btn-primary" id="submit">Sumit</button>
+
+        </div>
+        <div class="my-3" id="responseJsonBox">
+
+          <div class="mb-3 row">
+            <label for="responseJsonText" class="col-sm-2 col-form-label">Response</label>
+            <div class="col-sm-10">
+              
+              <textarea class="form-control" id="responseJsonText" rows="3">Your response will appear here...</textarea>
+    
+    
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+     
+   
+
+    </div>
+
+    <!-- <div class="container">
+      <p>hello</p>
+      <section id="thisSEction"></section>
+    </div>
+    <div class="container"></div>
+    <section></section>
+    <section id="sec">
+      <p>this is me</p>
+      <p>this is u</p>
+      <p>this is toi</p>
+    </section>
+    <section id="third"></section>
+    section+section^baher niklne ke liye -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>
+
